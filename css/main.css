@@ -1,0 +1,14 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   MASTER IMPORT ORCHESTRATOR
+   
+   Strict import order enforces dependency resolution:
+   1. Variables  → Axiomatic constants (no dependencies)
+   2. Reset      → Topological flatness (depends on variables)
+   3. Typography → Weight & tracking system (depends on variables)
+   4. Layout     → Structural grid & kinematics (depends on all above)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@import url('variables.css');
+@import url('reset.css');
+@import url('typography.css');
+@import url('layout.css');

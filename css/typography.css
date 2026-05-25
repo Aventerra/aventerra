@@ -1,0 +1,371 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TYPOGRAPHIC WEIGHT & TRACKING
+   
+   Geometric, high-density sans-serif (Inter). All institutional labeling
+   enforces: uppercase transformation, heavy structural weight, and
+   forced tracking interval T ≥ 0.05em. Typography functions as
+   immovable architecture, optimized for dense algorithmic outputs.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FLUID TYPOGRAPHIC SCALARS (Phase III, Directive VIII)
+   
+   clamp() functions combine rem + vw for accessibility zoom scaling.
+   Pure vw derivatives fail under browser optical zoom — the typography
+   remains locked to viewport geometry. The linear combination
+   f(Vw) = α·rem + β·vw respects the user's base font-size scalar.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── HIERARCHICAL NODE: Primary Title ─── */
+.av-type--h1,
+.av-hero__title {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: clamp(2rem, 1.4rem + 1.8vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+}
+
+/* ─── HIERARCHICAL NODE: Section Title ─── */
+.av-type--h2,
+.av-section__title {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-heavy);
+    font-size: clamp(1.125rem, 0.95rem + 0.5vw, 1.5rem);
+    line-height: 1.2;
+    letter-spacing: var(--tracking-institutional);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+}
+
+/* ─── HIERARCHICAL NODE: Card Label ─── */
+.av-type--label,
+.av-card__label,
+.av-metric-block__label,
+.av-contact-block__label {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+}
+
+/* ─── BODY TEXT: Dense Algorithmic Output ─── */
+.av-type--body,
+.av-card__text,
+.av-hero__subtitle {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    color: var(--c-grid-slate);
+}
+
+/* Directive XVII: Sovereign Mandate Topology */
+.av-prose {
+    text-align: left;
+    max-width: 75ch;
+}
+
+/* ─── SECTION INDEX: Ordinal Marker ─── */
+.av-section__index {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: var(--tracking-institutional);
+    text-transform: uppercase;
+    color: var(--c-grid-silver);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   QUANTITATIVE TYPOGRAPHY SUB-SYSTEM
+   
+   Isolated numerical rules utilizing geometric monospace typeface.
+   Tabular lining: font-variant-numeric: tabular-nums — every digit
+   occupies identical horizontal pixel width for decimal alignment.
+   Tracking neutralization: T = 0 (space between numbers introduces
+   probabilistic reading errors).
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── NUMERIC BASE: Applied to all quantitative outputs ─── */
+.av-numeric {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums lining-nums;
+    letter-spacing: var(--tracking-zero);
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+/* ─── METRIC VALUE: Large Numerical Display ─── */
+.av-metric-block__value {
+    font-family: var(--font-numeric);
+    font-weight: var(--weight-heavy);
+    font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.75rem);
+    line-height: 1;
+    letter-spacing: var(--tracking-zero);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+    color: var(--c-anchor);
+}
+
+/* ─── TABLE TYPOGRAPHY ─── */
+.av-table__th {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+}
+
+.av-table__td {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.8125rem;
+    letter-spacing: var(--tracking-dense);
+    color: var(--c-anchor);
+}
+
+/* ─── TABLE NUMERIC CELLS: Monospace numerical alignment ─── */
+.av-table__td--numeric {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+    letter-spacing: var(--tracking-zero);
+}
+
+/* ─── BIPARTITE NUMERIC TYPOGRAPHY (Directive XI) ─── */
+.av-bipartite__integer,
+.av-bipartite__decimal,
+.av-bipartite__fraction {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+    letter-spacing: var(--tracking-zero);
+}
+
+/* ─── KINEMATIC FLUX TYPOGRAPHY (Directive XII) ─── */
+.av-flux {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+    letter-spacing: var(--tracking-zero);
+    display: inline-block;
+    min-width: 0;
+}
+
+/* ─── NAVIGATION TYPOGRAPHY ─── */
+.av-header__link {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-semibold);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+    text-decoration: none;
+}
+
+.av-header__link.active {
+    color: var(--c-anchor);
+}
+
+/* ─── STRUCTURAL-GRID INDEX TYPOGRAPHY ─── */
+.structural-grid__index {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: var(--tracking-institutional);
+    text-transform: uppercase;
+    color: var(--c-grid-silver);
+}
+
+.structural-grid__index-title {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-heavy);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+    margin-top: calc(var(--space-unit) * 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   NODE CLUSTER TYPOGRAPHY (Phase VIII, Directive II)
+   
+   Naked typographic clusters. Classification rendered in heavy,
+   Abyssal Navy, tracking-spaced uppercase. Sub-details in smaller,
+   hyper-legible geometric font with zero vertical padding.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-node__classification {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: clamp(1rem, 0.8rem + 0.6vw, 1.375rem);
+    line-height: 1.15;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+}
+
+.av-node__detail {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--c-grid-slate);
+}
+
+.av-node__metadata {
+    font-family: inherit !important;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--c-grid-slate);
+    line-height: 1.6;
+    margin-top: calc(var(--space-unit) * 3); /* 1.5rem gap */
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 1);
+}
+
+.av-node__metadata strong {
+    color: var(--c-anchor);
+    font-weight: 700;
+}
+
+.av-node__vector {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-semibold);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+    margin-top: auto;
+    padding-top: calc(var(--space-unit) * 4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HOVER STATE ERADICATION — ANTI-RETAIL MANDATE
+   
+   Text and data rows must never change color, emit light, or shift
+   position upon mouse hover. Cursor remains strictly default over all
+   analytical text and data matrices. Pointer cursor reserved exclusively
+   for execution gateways.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-card,
+.av-card__label,
+.av-card__text,
+.av-table__row,
+.av-table__td,
+.av-table__th,
+.av-metric-block,
+.av-metric-block__value,
+.av-metric-block__label,
+.av-contact-block,
+.av-contact-block__label,
+.av-contact-block__value,
+.av-hero__title,
+.av-hero__subtitle,
+.av-section__title,
+.av-section__index,
+.structural-grid,
+.structural-grid__index,
+.structural-grid__primary {
+    cursor: default;
+}
+
+.av-card:hover,
+.av-table__row:hover,
+.av-table__row:hover .av-table__td,
+.av-metric-block:hover,
+.av-contact-block:hover {
+    color: inherit;
+    background-color: transparent;
+    transform: none;
+    opacity: 1;
+    border-color: inherit;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE BENTHIC ZONE — Footer Typography (Phase IV, Directive XIV)
+   
+   C_anchor at α = 0.4 for calculated recession. Heavy tracking,
+   minimum fluid font-size, monolithic structural prose.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-footer__mark {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: clamp(0.625rem, 0.5rem + 0.3vw, 0.75rem);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: rgba(10, 22, 40, 0.4);
+}
+
+.av-footer__legal {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: clamp(0.5625rem, 0.5rem + 0.15vw, 0.6875rem);
+    line-height: 1.8;
+    letter-spacing: var(--tracking-institutional);
+    text-transform: uppercase;
+    color: rgba(10, 22, 40, 0.4);
+}
+
+/* ─── CONTACT VALUE ─── */
+.av-contact-block__value {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.875rem;
+    letter-spacing: var(--tracking-dense);
+    color: var(--c-anchor);
+}
+
+/* ─── HEADER MARK ─── */
+.av-header__mark {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: 0.8125rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+    text-decoration: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE VIEWPORT STERILIZATION — TYPOGRAPHY (Phase XXX)
+   
+   Aggressive throttling of fluid typography to maintain architectural
+   rigidity on narrow viewports. Kerning is compressed to prevent
+   ungraceful line breaks.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .av-type--h1,
+    .av-hero__title {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+        letter-spacing: var(--tracking-institutional); /* Compress kerning */
+    }
+
+    .av-type--h2,
+    .av-section__title {
+        font-size: clamp(1rem, 6vw, 1.25rem);
+        letter-spacing: var(--tracking-dense); /* Compress kerning */
+    }
+
+    .av-cognitive-block__value {
+        font-size: clamp(1.25rem, 8vw, 1.5rem);
+        letter-spacing: var(--tracking-institutional);
+    }
+}

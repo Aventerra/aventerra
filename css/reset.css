@@ -1,0 +1,91 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TOPOLOGICAL FLATNESS — UNIVERSAL NEUTRALIZATION
+   
+   Mathematical enforcement of depth gradient ∇z = 0 across all
+   rendering contexts. Box shadows, text shadows, border radii, and
+   three-dimensional approximations are forcefully overridden to zero.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* ─── ENFORCE ∇z = 0 ─── */
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 0;
+    outline-offset: 0;
+    transform-style: flat;
+    perspective: none;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--c-base);
+    color: var(--c-anchor);
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    overflow-x: hidden;
+}
+
+/* ─── Neutralize all interactive defaults ─── */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* ─── Force flatness on focus states ─── */
+*:focus {
+    outline: var(--border-fractional) solid var(--c-grid-slate);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: var(--border-fractional) solid var(--c-anchor);
+    outline-offset: 2px;
+    box-shadow: none;
+}

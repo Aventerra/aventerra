@@ -1,0 +1,1301 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   STRUCTURAL LAYOUT — DIMENSIONAL UNBOUNDING (Phase III, Directive VI)
+   
+   The 100vw overflow paradox is resolved: W_viewport includes the
+   scrollbar, so width: 100% (NOT 100vw) is enforced. The container
+   seizes the entire continuous parent space. Structural padding
+   Px = 4vw forces grid boundaries inward without triggering
+   horizontal scroll mechanisms.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── BODY CONFIGURATION ─── */
+body {
+    min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   KINEMATIC AUTHORITY (Phase XXXIV)
+   
+   The retail cartoon hand is eradicated. All standard interactions default
+   to the baseline arrow. High-precision execution vectors demand the
+   crosshair.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+a, button, input[type="submit"], input[type="file"], select, label, .av-node__vector {
+    cursor: crosshair !important;
+}
+
+/* Optional global override if they wanted all links to be default instead, 
+   but the prompt says: "cursor: default !important; on all links, buttons... 
+   If a visual cursor shift is absolutely desired... use cursor: crosshair"
+   I will use crosshair on actionable items, and default globally where possible. */
+body a, body button, body input[type="submit"] {
+    cursor: default !important;
+}
+
+.av-terminal__submit, .av-node__vector, .av-modal__file-upload, .av-modal__close {
+    cursor: crosshair !important;
+}
+
+/* ─── RENDERING CONTAINER — Unbound, full-width ─── */
+.rendering-container {
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    background-color: var(--c-base);
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE IMMUTABLE HORIZON (Phase III, Directive X)
+   
+   Header fixed at y=0 via position:sticky. Bottom border governed by
+   sentinel-based IntersectionObserver (O(1) computation). The .scrolled
+   class renders 1px C_grid border; at y=0 the header merges into void.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: calc(var(--space-unit) * 5);
+    padding-bottom: calc(var(--space-unit) * 5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--c-base);
+    border-bottom: var(--border-fractional) solid transparent;
+    transition: border-color 200ms var(--easing-critically-damped);
+}
+
+.av-header.scrolled {
+    border-bottom-color: var(--c-grid-silver);
+}
+
+.av-header__nav {
+    display: flex;
+    gap: calc(var(--space-unit) * 4);
+}
+
+.av-header__link {
+    padding-bottom: calc(var(--space-unit) * 0.5);
+    border-bottom: var(--border-fractional) solid transparent;
+}
+
+.av-header__link.active {
+    border-bottom-color: var(--c-anchor);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HERO LAYOUT
+   
+   Border uses absolute pseudo-element (Directive VII) to span the
+   full viewport width, ignoring container Px padding.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--space-unit) * 12);
+    padding-bottom: calc(var(--space-unit) * 12);
+    position: relative;
+}
+
+/* Directive VII / Phase XV: Hero macro-boundary */
+.av-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 1px;
+    background-color: rgba(10, 22, 40, 0.12);
+}
+
+.av-hero__content {
+    max-width: 720px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE LOCALIZED KINEMATIC UPDRAFT (Phase XXIV)
+   
+   Micro-bounding box for the antigravity matrix. 100px by 150px strictly
+   locked to the absolute bottom center.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-antigravity-well {
+    position: fixed;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 50;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+
+.av-hero__title {
+    margin-bottom: calc(var(--space-unit) * 4);
+}
+
+.av-hero__subtitle {
+    margin-bottom: calc(var(--space-unit) * 5);
+    max-width: 560px;
+}
+
+.av-hero__rule {
+    width: 64px;
+    height: var(--border-fractional);
+    background-color: var(--c-anchor);
+}
+
+/* ─── CORE THESIS (Phase XIII, Directive I) ─── */
+.av-thesis {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: calc(var(--space-unit) * 10);
+    padding-bottom: calc(var(--space-unit) * 10);
+}
+
+.av-thesis__text {
+    max-width: 780px;
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: clamp(1.125rem, 0.9rem + 0.6vw, 1.5rem);
+    line-height: 1.8;
+    letter-spacing: var(--tracking-institutional);
+    color: var(--c-anchor);
+}
+
+/* ─── COGNITIVE SCALE GRID (Phase XIII, Directive II) ─── */
+.av-cognitive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--space-unit) * 6);
+    padding-top: calc(var(--space-unit) * 6);
+}
+
+@media (max-width: 768px) {
+    .av-cognitive-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.av-cognitive-block {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 1.5);
+}
+
+.av-cognitive-block__value {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: clamp(1.5rem, 1.2rem + 0.8vw, 2rem);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+    line-height: 1.1;
+}
+
+.av-cognitive-block__label {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    letter-spacing: var(--tracking-institutional);
+    color: var(--c-grid-slate);
+}
+
+/* ─── GRID TABLE (Phase XV — Sovereign Typographic Matrix) ─── */
+.av-grid-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid rgba(10, 22, 40, 0.12);
+    border-bottom: 1px solid rgba(10, 22, 40, 0.12);
+}
+
+.av-grid-table__header,
+.av-grid-table__row {
+    display: grid;
+    grid-template-columns: 2.5fr 0.8fr 0.8fr 0.8fr 0.8fr;
+    gap: calc(var(--space-unit) * 2);
+    padding: calc(var(--space-unit) * 2.5) 0;
+    border-bottom: none;
+    align-items: baseline;
+}
+
+.av-grid-table__header {
+    border-bottom: 1px solid rgba(10, 22, 40, 0.12);
+}
+
+.av-grid-table__th {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+}
+
+.av-grid-table__th--numeric {
+    text-align: right;
+}
+
+.av-grid-table__td {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-institutional);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+}
+
+.av-grid-table__td--numeric {
+    font-family: var(--font-numeric);
+    font-weight: var(--weight-medium);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ─── DIRECTORY GRID (Phase XIV, Directive IV) ─── */
+.av-directory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--space-unit) * 6);
+}
+
+@media (max-width: 768px) {
+    .av-directory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.av-directory-block {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 1);
+}
+
+.av-directory-block__header {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: 0.8125rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+}
+
+.av-directory-block__subtext {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-institutional);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+}
+
+.av-contact-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer !important;
+}
+
+/* ─── SECTION LAYOUT ─── */
+.av-section {
+    padding-top: calc(var(--space-unit) * 10);
+    padding-bottom: calc(var(--space-unit) * 10);
+    position: relative;
+}
+
+/* Directive VII / Phase XV: Full-bleed section border — heavy macro-boundary */
+.av-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 1px;
+    background-color: rgba(10, 22, 40, 0.12);
+}
+
+.av-section--terminal::after {
+    display: none;
+}
+
+.av-section:last-of-type {
+    margin-bottom: 4vw;
+}
+
+.av-section__header {
+    margin-bottom: calc(var(--space-unit) * 6);
+}
+
+.av-section__index {
+    display: block;
+    margin-bottom: calc(var(--space-unit) * 2);
+}
+
+.av-section__title {
+    margin-bottom: calc(var(--space-unit) * 3);
+}
+
+.av-section__rule {
+    width: 40px;
+    height: var(--border-fractional);
+    background-color: var(--c-grid-silver);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   COMPRESSIBLE MULTI-VECTOR TOPOLOGY (Phase III, Directive IX)
+   
+   Three-vector CSS Grid: left index, central compressible void, and
+   right-aligned quantitative matrix. The central void uses minmax()
+   to allow dynamic compression, ensuring the data primitive matrix
+   never shrinks below its minimum readable width (600px).
+   
+   Grid Function: 1fr minmax(2vw, 3fr) minmax(600px, 5fr)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.structural-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(2vw, 3fr) minmax(600px, 5fr);
+    padding-top: calc(var(--space-unit) * 4);
+    padding-bottom: calc(var(--space-unit) * 4);
+    position: relative;
+}
+
+.structural-grid--asymmetric {
+    grid-template-columns: 1fr 4fr;
+}
+
+/* Structural-grid: internal border eradicated (Phase XV) */
+.structural-grid::before {
+    display: none;
+}
+
+.structural-grid__index {
+    padding-top: calc(var(--space-unit) * 0.5);
+}
+
+/* Central void — empty column, dynamically compressible */
+.structural-grid__void {
+    /* Intentionally empty: spatial gravity column */
+}
+
+.structural-grid__primary {
+    min-width: 0;
+}
+
+/* ─── SECTION BODY VARIANTS ─── */
+.av-section__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.av-section__body--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--space-unit) * 5);
+}
+
+.av-section__body--contact {
+    flex-direction: row;
+    gap: calc(var(--space-unit) * 8);
+}
+
+.nested-triple-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--space-unit) * 5);
+    width: 100%;
+}
+
+.macro-typography {
+    font-family: var(--font-numeric);
+    font-weight: var(--weight-regular);
+    font-size: clamp(3rem, 6vw, 6rem);
+    letter-spacing: var(--tracking-zero);
+    line-height: 1;
+    color: var(--c-anchor);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CAREERS FILTRATION GRID (Phase VIII, Directive II)
+   
+   Full-width 3-vector typographic grid. Zero borders, zero
+   background shifts, zero drop shadows. Positions exist as
+   naked, high-density typographic clusters floating in the
+   pure white monolith. Massive negative space defines separation.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-filtration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--space-unit) * 6);
+    width: 100%;
+}
+
+.av-node-cluster {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Phase XLI */
+    gap: calc(var(--space-unit) * 2);
+    /* Ensure the kinematic decoupling transitions smoothly */
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1), 
+                opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+                filter 800ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity, filter;
+}
+
+/* ─── KINEMATIC DECOUPLING (Phase XLVI) ─── */
+.av-filtration-grid:has(.av-node-cluster:hover) .av-node-cluster:not(:hover) {
+    transform: scale(0.95);
+    opacity: 0.3;
+    filter: blur(4px);
+}
+
+/* ─── CARD LAYOUT ─── */
+.av-card {
+    padding: calc(var(--space-unit) * 4) 0;
+    border-top: var(--border-fractional) solid var(--c-grid-silver-light);
+}
+
+.av-card__label {
+    display: block;
+    margin-bottom: calc(var(--space-unit) * 2);
+}
+
+/* ─── METRIC BLOCK LAYOUT ─── */
+.av-metric-block {
+    padding: calc(var(--space-unit) * 4) 0;
+    border-top: var(--border-fractional) solid var(--c-grid-silver-light);
+}
+
+.av-metric-block--kpi {
+    padding: calc(var(--space-unit) * 4) 0;
+    border-top: 1px solid var(--c-grid-silver);
+}
+
+.av-metric-block__value {
+    display: block;
+    margin-bottom: calc(var(--space-unit) * 1.5);
+}
+
+.av-metric-block__label {
+    display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DATA PRIMITIVE MATRIX — Naked Quantitative Tables
+   
+   All vertical borders strictly prohibited. Vertical alignment relies
+   entirely on spatial gravity. Horizontal borders: 1px solid C_grid.
+   Padding: exact, dense, proportional to typographic line-height.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.av-table__th {
+    text-align: left;
+    padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3) calc(var(--space-unit) * 1.5) 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: var(--border-fractional) solid var(--c-anchor);
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
+.av-table__th:last-child {
+    padding-right: 0;
+}
+
+.av-table__td {
+    padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 3) calc(var(--space-unit) * 1.5) 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: var(--border-fractional) solid var(--c-grid-silver);
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.av-table__td:last-child {
+    padding-right: 0;
+}
+
+.av-table__row:last-child .av-table__td {
+    border-bottom: none;
+}
+
+/* ─── Explicit vertical border prohibition ─── */
+.av-table__th,
+.av-table__td {
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BIPARTITE NUMERIC ANCHORING (Phase IV, Directive XI)
+   
+   Multi-tiered CSS Grid for quantitative data. The decimal character
+   anchors at an absolute geometric x-coordinate via a bipartite cell
+   split: integer portion right-aligned, decimal+fraction left-aligned.
+   Immune to variations in string magnitude.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-bipartite {
+    display: inline-grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: baseline;
+}
+
+.av-bipartite__integer {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.av-bipartite__decimal {
+    text-align: center;
+    width: 0.5em;
+}
+
+.av-bipartite__fraction {
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* ─── SECTION BODY VARIANTS ─── */
+
+/* ─── CONTACT BLOCK LAYOUT ─── */
+.av-contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE BENTHIC ZONE — Legal Matrix (Phase IV, Directive XIV)
+   
+   Massive vertical spatial trench (My = 12vw) separating active alpha
+   matrices from the foundation. Footer is an immovable legal fortress.
+   Typography applies C_anchor at α = 0.4 for calculated recession.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-footer {
+    margin-top: auto;
+    padding-top: calc(var(--space-unit) * 5);
+    padding-bottom: calc(var(--space-unit) * 10);
+    position: relative;
+}
+
+/* Directive VII: Full-bleed footer border */
+.av-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: var(--border-fractional);
+    background-color: var(--c-grid-silver-light);
+}
+
+.av-footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 3);
+}
+
+.av-footer__legal {
+    max-width: none;
+    color: rgba(10, 22, 40, 0.4);
+    line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   KINEMATIC DAMPING — CSS STATE DEFINITIONS
+   
+   Pre-render state: opacity 0, positive vertical translation.
+   Post-render state: opacity 1, translation 0.
+   Transition uses critically damped cubic-bezier at 1200ms.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-reveal {
+    opacity: 0;
+    transform: translateY(var(--translate-initial));
+    transition:
+        opacity var(--duration-reveal) var(--easing-critically-damped),
+        transform var(--duration-reveal) var(--easing-critically-damped);
+    will-change: opacity, transform;
+}
+
+.av-reveal--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Z-AXIS FOCAL MATRIX (Phase XLVII)
+   
+   Global viewport suppression. Hardware-accelerated depth tracking
+   all <section> nodes indiscriminately via intersection observer.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+section {
+    transition: all 800ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, filter, transform;
+}
+
+.av-section-focused {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.av-section-suppressed {
+    opacity: 0.35;
+    filter: blur(4px);
+    transform: scale(0.97);
+    pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   GEOMETRIC SWEEP KINEMATICS (Phase VI, Directive XXII & XXIII)
+   
+   Hardware-accelerated clip-path expansion. 
+   Delay is injected natively via inline --cascade-idx properties.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-sweep-reveal {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    will-change: clip-path;
+    transition: clip-path var(--vault-duration) var(--vault-timing);
+    transition-delay: calc(var(--cascade-idx, 0) * 120ms);
+}
+
+.av-sweep-reveal--visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE TOPOLOGY — Viewport Adaptations
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .rendering-container {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+
+    .av-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: calc(var(--space-unit) * 3);
+    }
+
+    .av-header__nav {
+        flex-wrap: wrap;
+        gap: calc(var(--space-unit) * 3);
+    }
+
+    .av-hero {
+        padding-top: calc(var(--space-unit) * 8);
+        padding-bottom: calc(var(--space-unit) * 8);
+    }
+
+    /* ─── Three-vector collapse: void annihilated, stack vertically ─── */
+    .structural-grid {
+        grid-template-columns: 1fr;
+        row-gap: calc(var(--space-unit) * 2);
+    }
+
+    .structural-grid__void {
+        display: none;
+    }
+
+    .av-section__body--grid {
+        grid-template-columns: 1fr;
+    }
+
+    .av-section__body--contact {
+        flex-direction: column;
+        gap: calc(var(--space-unit) * 5);
+    }
+
+    .av-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .rendering-container {
+        padding-left: calc(var(--space-unit) * 2);
+        padding-right: calc(var(--space-unit) * 2);
+    }
+
+    .av-header__nav {
+        gap: calc(var(--space-unit) * 2);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BIFURCATED ACCESS TERMINAL (Phase X)
+   
+   Full-viewport centered void. The login matrix is geometrically
+   isolated in the absolute dead center of the screen. Zero footers,
+   zero indexes, zero background artifacts. ∇z = 0 applies universally.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-terminal-void {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: calc(var(--space-unit) * 4);
+    position: relative;
+    overflow: hidden;
+}
+
+.av-terminal {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 5);
+}
+
+/* ─── MACRO ANCHOR TITLE (Phase X, Directive I) ─── */
+.av-terminal__title {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: clamp(1.5rem, 1.2rem + 0.8vw, 2rem);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+    line-height: 1.1;
+}
+
+/* ─── MECHANICAL TOGGLE SLIDER (Phase X, Directive II) ─── */
+.av-terminal__slider {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: var(--border-fractional) solid var(--c-grid-silver);
+    background: var(--c-base);
+    overflow: hidden;
+}
+
+.av-terminal__slider-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--c-anchor);
+    transition: transform var(--duration-reveal) var(--easing-critically-damped);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.av-terminal__slider--right .av-terminal__slider-block {
+    transform: translateX(100%);
+}
+
+.av-terminal__slider-label {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+    text-align: center;
+    padding: calc(var(--space-unit) * 1.5) 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color var(--duration-reveal) var(--easing-critically-damped);
+}
+
+.av-terminal__slider-label--active {
+    color: var(--c-base);
+    font-weight: var(--weight-black);
+}
+
+/* ─── STRUCTURAL INPUT LABELS (Phase X, Directive III) ─── */
+.av-terminal__input-group {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 0.5);
+}
+
+.av-terminal__label {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+}
+
+/* ─── INPUT MATRIX (Directive III) ─── */
+.av-terminal__field {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 4);
+}
+
+.av-terminal__input {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.8125rem;
+    letter-spacing: var(--tracking-institutional);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(2, 10, 28, 0.15); /* Phase XXXVI: Throttled baseline */
+    padding: calc(var(--space-unit) * 1.5) 0;
+    outline: none;
+    width: 100%;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color var(--duration-reveal) var(--easing-critically-damped);
+}
+
+.av-terminal__input::placeholder {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: rgba(2, 10, 28, 0.25); /* Phase XXXVI: Ghostly opacity */
+}
+
+/* Phase XXXV & XXXVI: Dropdown typographic serialization and chevron */
+select.av-terminal__input {
+    font-family: var(--font-numeric) !important;
+    background-image: url('data:image/svg+xml;utf8,<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="%230A1628" stroke-width="1"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0px center;
+    padding-right: 20px;
+}
+
+.av-terminal__input:focus {
+    border-bottom-color: var(--c-anchor);
+}
+
+/* ─── UTILITY VECTORS (Directive IV) ─── */
+.av-terminal__utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.av-terminal__remember {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--space-unit) * 1);
+    cursor: pointer;
+}
+
+.av-terminal__checkbox-native {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.av-terminal__checkbox {
+    width: 14px;
+    height: 14px;
+    border: var(--border-fractional) solid var(--c-grid-silver);
+    background: transparent;
+    display: inline-block;
+    flex-shrink: 0;
+    transition: background-color 0ms, border-color 0ms;
+}
+
+.av-terminal__checkbox-native:checked + .av-terminal__checkbox {
+    background-color: var(--c-anchor);
+    border-color: var(--c-anchor);
+}
+
+.av-terminal__utility-label {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+    cursor: pointer;
+}
+
+.av-terminal__forgot {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-slate);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ─── EXECUTION GATEWAY (Directive V) ─── */
+.av-terminal__submit {
+    width: 100%;
+    padding: calc(var(--space-unit) * 2.5) 0;
+    background-color: var(--c-anchor);
+    color: var(--c-base);
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    font-size: 0.8125rem;
+    letter-spacing: calc(var(--tracking-wide) + 0.05em);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.av-terminal__submit:hover,
+.av-terminal__submit:focus {
+    background-color: var(--c-anchor);
+    color: var(--c-base);
+    transform: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* ─── TERMS BASEPLATE (Directive IV) ─── */
+.av-terminal__terms {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: clamp(0.5rem, 0.45rem + 0.12vw, 0.5625rem);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-grid-silver);
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LOCKDOWN PROTOCOL (Phase X.C)
+   
+   Full-viewport overlay. The login matrix is annihilated. A geometric
+   strike line draws from center, the ⊘ insignia fades in, the decree
+   is delivered. After 4000ms, everything retracts and the terminal
+   re-initializes with a fresh sweep.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-lockdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--c-base); /* DOM Annihilation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0ms;
+}
+
+.av-lockdown--active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* The Geometric Strike — 1px line drawing from center outward */
+.av-lockdown__line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--c-grid-silver);
+    transform: scaleX(0);
+    transition: transform 800ms var(--easing-critically-damped);
+}
+
+.av-lockdown--active .av-lockdown__line {
+    transform: scaleX(1);
+}
+
+/* Insignia container — sits on the line with white mask */
+.av-lockdown__insignia {
+    position: relative;
+    z-index: 2;
+    background: var(--c-base);
+    color: var(--c-anchor);
+    padding: 0 calc(var(--space-unit) * 4);
+    opacity: 0;
+    transition: opacity 800ms var(--easing-critically-damped);
+    transition-delay: 0ms;
+    margin-bottom: calc(var(--space-unit) * 4);
+}
+
+.av-lockdown--active .av-lockdown__insignia {
+    opacity: 1;
+    transition-delay: 400ms;
+}
+
+/* The Decree */
+.av-lockdown__decree {
+    position: relative;
+    z-index: 2;
+    background: var(--c-base);
+    padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+    text-align: center;
+    max-width: 480px;
+    line-height: 2;
+    opacity: 0;
+    transition: opacity 800ms var(--easing-critically-damped);
+    transition-delay: 0ms;
+}
+
+.av-lockdown--active .av-lockdown__decree {
+    opacity: 1;
+    transition-delay: 600ms;
+}
+
+/* Terminal annihilation state */
+.av-terminal--annihilated {
+    opacity: 0 !important;
+    pointer-events: none;
+    transition: opacity 0ms !important;
+}
+
+/* ─── FORM PANEL FADE (Directive II Kinematic Switch) ─── */
+.av-terminal__panel {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 5);
+    transition: opacity 300ms var(--easing-critically-damped);
+}
+
+.av-terminal__panel--hidden {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE VIEWPORT STERILIZATION (Phase XXX)
+   
+   Aventerra's execution must remain as unyielding and structural on a phone
+   as it is on desktop. The multi-column layout collapses to a single hierarchy.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    /* Directive I: The 3-to-1 Vector Collapse */
+    .structural-grid,
+    .structural-grid--asymmetric {
+        grid-template-columns: 1fr;
+    }
+    
+    .structural-grid__index {
+        margin-bottom: 2rem;
+    }
+    
+    .av-cognitive-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .av-directory-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .av-grid-table__header,
+    .av-grid-table__row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE COGNITIVE INGESTION MATRIX (Phase XXXII)
+   
+   A brutalist modal overlay utilizing Z-axis suppression and kinematic 
+   scaling for institutional recruitment flow.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(2, 10, 28, 0.85); /* Heavy Abyssal Navy */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms var(--easing-critically-damped);
+}
+
+.av-modal-backdrop.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.av-modal {
+    background-color: var(--c-base);
+    padding: 4rem 5rem;
+    width: 100%;
+    max-width: 640px;
+    border-radius: 0; /* Monolithic Geometry */
+    box-shadow: none;
+    transform: scale(0.98);
+    opacity: 0;
+    transition: transform 300ms var(--easing-critically-damped), opacity 300ms var(--easing-critically-damped);
+}
+
+.av-modal-backdrop.is-active .av-modal {
+    transform: scale(1.0);
+    opacity: 1;
+}
+
+.av-modal__header {
+    margin-bottom: calc(var(--space-unit) * 12);
+}
+
+.av-modal__title {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-black);
+    font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--c-anchor);
+    margin-bottom: calc(var(--space-unit) * 2);
+}
+
+.av-modal__decree {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: rgba(10, 22, 40, 0.6);
+    letter-spacing: 0.01em;
+}
+
+.av-modal__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--space-unit) * 4);
+}
+
+.av-modal__row--split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--space-unit) * 3);
+}
+
+.av-modal__file-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.av-modal__file-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.av-modal__file-btn {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-institutional);
+    color: var(--c-anchor);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--c-anchor);
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   INGESTION KINEMATICS & VALIDATION (Phase XXXIII)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.av-modal__close {
+    position: absolute;
+    top: 4rem; /* Phase XXXVI: Align to cap-height */
+    right: 5rem; /* Phase XXXVI: Align to grid */
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 200ms ease;
+}
+
+.av-modal__close:hover {
+    opacity: 0.6;
+}
+
+/* Validation Error States */
+.av-terminal__input--error {
+    border-bottom: 2px solid var(--c-anchor) !important;
+}
+
+.av-terminal__submit--error {
+    /* Using the existing background-color and color logic of the submit button */
+}

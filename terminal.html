@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aventerra — Bifurcated Access Terminal. Secure institutional login.">
+    <title>Aventerra | Terminal</title>
+
+    <!-- TAB SIGIL — Phase XXIII (Directive III) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Style Matrix Orchestrator -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Kinematic Node Transitioning (Directive XIX) -->
+    <style>
+        .kinematic-loading body {
+            opacity: 0 !important;
+        }
+    </style>
+    <script>document.documentElement.classList.add('kinematic-loading');</script>
+</head>
+
+<body>
+
+    <!-- SENTINEL -->
+    <div id="av-sentinel" aria-hidden="true"
+        style="position:absolute;top:0;left:0;width:1px;height:0;pointer-events:none;"></div>
+
+    <div class="rendering-container">
+
+        <header class="av-header" id="av-header">
+            <a href="index.html" class="av-header__mark">AVENTERRA</a>
+            <nav class="av-header__nav" id="av-nav" aria-label="Primary navigation">
+                <a href="index.html" class="av-header__link av-nav-link">FIRM</a>
+                <a href="capital.html" class="av-header__link av-nav-link">CAPITAL</a>
+                <a href="terminal.html" class="av-header__link av-nav-link active">TERMINAL</a>
+                <a href="careers.html" class="av-header__link av-nav-link">CAREERS</a>
+            </nav>
+        </header>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- BIFURCATED ACCESS TERMINAL (Phase X)                       -->
+        <!-- Full-viewport white void. Centered login matrix.           -->
+        <!-- Zero footers. Zero indexes. Zero background artifacts.     -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <div class="av-terminal-void">
+
+            <!-- Directive VI: The entire matrix sweeps into existence -->
+            <div class="av-terminal av-sweep-reveal" style="--cascade-idx: 0;">
+
+                <!-- Directive I: Macro Anchor Title -->
+                <h2 class="av-terminal__title">SECURE TERMINAL</h2>
+
+                <!-- Directive II: Mechanical Rectilinear Slider -->
+                <div class="av-terminal__slider" id="av-slider" role="tablist">
+                    <div class="av-terminal__slider-block"></div>
+                    <button class="av-terminal__slider-label av-terminal__slider-label--active" role="tab"
+                        aria-selected="true" id="tab-capital" aria-controls="panel-capital"
+                        type="button">CLIENT</button>
+                    <button class="av-terminal__slider-label" role="tab" aria-selected="false" id="tab-syndicate"
+                        aria-controls="panel-syndicate" type="button">EMPLOYEE</button>
+                </div>
+
+                <!-- Panel: Client (Institutional Capital) -->
+                <form class="av-terminal__panel" id="panel-capital" role="tabpanel" aria-labelledby="tab-capital"
+                    onsubmit="return false;">
+
+                    <!-- Directive III: Labeled Input Matrix -->
+                    <div class="av-terminal__field">
+                        <div class="av-terminal__input-group">
+                            <label class="av-terminal__label" for="capital-username">IDENTIFIER</label>
+                            <input class="av-terminal__input" type="text" id="capital-username"
+                                placeholder="Enter Credentials..." autocomplete="username" spellcheck="false">
+                        </div>
+                        <div class="av-terminal__input-group">
+                            <label class="av-terminal__label" for="capital-passphrase">PASSPHRASE</label>
+                            <input class="av-terminal__input" type="password" id="capital-passphrase"
+                                placeholder="Enter Credentials..." autocomplete="current-password">
+                        </div>
+                    </div>
+
+                    <!-- Directive IV: Utility Vectors -->
+                    <div class="av-terminal__utilities">
+                        <label class="av-terminal__remember">
+                            <input type="checkbox" class="av-terminal__checkbox-native" id="capital-remember">
+                            <span class="av-terminal__checkbox"></span>
+                            <span class="av-terminal__utility-label">REMEMBER ME</span>
+                        </label>
+                        <button class="av-terminal__forgot" type="button">FORGOT PASSWORD</button>
+                    </div>
+
+                    <!-- Directive V: Execution Gateway -->
+                    <button class="av-terminal__submit" type="submit">AUTHORIZE CONNECTION</button>
+
+                    <!-- Terms Baseplate -->
+                    <span class="av-terminal__terms">BY INITIALIZING, YOU AGREE TO THE AVENTERRA TERMS OF USE.</span>
+
+                </form>
+
+                <!-- Panel: Employee (Internal Syndicate) -->
+                <form class="av-terminal__panel av-terminal__panel--hidden" id="panel-syndicate" role="tabpanel"
+                    aria-labelledby="tab-syndicate" onsubmit="return false;">
+
+                    <div class="av-terminal__field">
+                        <div class="av-terminal__input-group">
+                            <label class="av-terminal__label" for="syndicate-username">IDENTIFIER</label>
+                            <input class="av-terminal__input" type="text" id="syndicate-username"
+                                placeholder="Enter Credentials..." autocomplete="username" spellcheck="false">
+                        </div>
+                        <div class="av-terminal__input-group">
+                            <label class="av-terminal__label" for="syndicate-passphrase">PASSPHRASE</label>
+                            <input class="av-terminal__input" type="password" id="syndicate-passphrase"
+                                placeholder="Enter Credentials..." autocomplete="current-password">
+                        </div>
+                    </div>
+
+                    <div class="av-terminal__utilities">
+                        <label class="av-terminal__remember">
+                            <input type="checkbox" class="av-terminal__checkbox-native" id="syndicate-remember">
+                            <span class="av-terminal__checkbox"></span>
+                            <span class="av-terminal__utility-label">REMEMBER ME</span>
+                        </label>
+                        <button class="av-terminal__forgot" type="button">FORGOT PASSWORD</button>
+                    </div>
+
+                    <button class="av-terminal__submit" type="submit">AUTHORIZE CONNECTION</button>
+
+                    <span class="av-terminal__terms">BY INITIALIZING, YOU AGREE TO THE AVENTERRA TERMS OF USE.</span>
+
+                </form>
+
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <!-- LOCKDOWN OVERLAY (Phase X.C)                           -->
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <div class="av-lockdown" id="av-lockdown" aria-live="assertive">
+                <div class="av-lockdown__line"></div>
+                <div class="av-lockdown__insignia">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <circle cx="24" cy="24" r="22" stroke="#0A1628" stroke-width="1" />
+                        <line x1="8.4" y1="39.6" x2="39.6" y2="8.4" stroke="#0A1628" stroke-width="1" />
+                    </svg>
+                </div>
+                <span class="av-lockdown__decree">ACCESS DENIED. TERMINAL RESTRICTED TO VERIFIED CAPITAL AND ACTIVE
+                    SYNDICATE.</span>
+            </div>
+
+        </div>
+
+        <!-- THE BENTHIC ZONE — Legal Fortress (Directive XIV) -->
+        <footer class="av-footer" id="av-footer">
+            <div class="av-footer__content av-reveal">
+                <span class="av-footer__mark">AVENTERRA CAPITAL PARTNERS LP</span>
+                <span class="av-footer__legal">This document is issued by Aventerra Capital Partners LP, a regulated entity incorporated under the laws of the United States. The information contained herein does not constitute an offer or solicitation in any jurisdiction in which such offer or solicitation is not authorized. Past performance is not indicative of future results. Investment values fluctuate. This document is confidential and intended solely for the addressed institutional entity. Unauthorized reproduction, disclosure, or distribution is strictly prohibited.</span>
+                <span class="av-footer__legal">© 2026 Aventerra Capital Partners LP. All rights reserved. New York, NY, USA.</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Logic Sub-Directory: State & Kinematic Functions -->
+    <script src="js/observer.js"></script>
+    <script src="js/kinematics.js"></script>
+    <script src="js/transitions.js"></script>
+    <script src="js/focal.js"></script>
+
+    <!-- Terminal State: Sweep, Slider, & Lockdown Protocol -->
+    <script>
+        (function () {
+            'use strict';
+
+            var terminal = document.querySelector('.av-terminal.av-sweep-reveal');
+            var lockdown = document.getElementById('av-lockdown');
+            var lockdownActive = false;
+
+            /* ─── Initial Sweep: Fire immediately on load ─── */
+            if (terminal) {
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        terminal.classList.add('av-sweep-reveal--visible');
+                    });
+                });
+            }
+
+            /* ─── Mechanical Slider Logic ─── */
+            var slider = document.getElementById('av-slider');
+            var labels = slider.querySelectorAll('.av-terminal__slider-label');
+            var panels = document.querySelectorAll('.av-terminal__panel');
+
+            labels.forEach(function (label) {
+                label.addEventListener('click', function () {
+                    if (lockdownActive) return;
+                    var targetId = label.getAttribute('aria-controls');
+                    var isRight = label === labels[1];
+
+                    if (isRight) {
+                        slider.classList.add('av-terminal__slider--right');
+                    } else {
+                        slider.classList.remove('av-terminal__slider--right');
+                    }
+
+                    labels.forEach(function (l) {
+                        l.classList.remove('av-terminal__slider-label--active');
+                        l.setAttribute('aria-selected', 'false');
+                    });
+                    label.classList.add('av-terminal__slider-label--active');
+                    label.setAttribute('aria-selected', 'true');
+
+                    panels.forEach(function (p) {
+                        if (p.id === targetId) {
+                            p.classList.remove('av-terminal__panel--hidden');
+                        } else {
+                            p.classList.add('av-terminal__panel--hidden');
+                        }
+                    });
+                });
+            });
+
+            /* ═══════════════════════════════════════════════════════════════
+               ABSOLUTE LOCKDOWN PROTOCOL (Phase X.C)
+               
+               Annihilate form (0ms) → Geometric strike draws →
+               ⊘ insignia fades (800ms) → Decree delivered →
+               4000ms silence → Retraction → Terminal re-sweeps.
+               ═══════════════════════════════════════════════════════════════ */
+
+            function executeLockdown() {
+                if (lockdownActive) return;
+                lockdownActive = true;
+
+                // PHASE 1: Annihilate the terminal (0ms — instant)
+                terminal.classList.add('av-terminal--annihilated');
+
+                // PHASE 2: Activate the lockdown overlay
+                // The line draws, insignia fades at 400ms delay,
+                // decree fades at 600ms delay (all via CSS)
+                requestAnimationFrame(function () {
+                    lockdown.classList.add('av-lockdown--active');
+                });
+
+                // PHASE 3: 4000ms absolute silence
+                setTimeout(function () {
+
+                    // PHASE 4: Retract — deactivate lockdown
+                    lockdown.classList.remove('av-lockdown--active');
+
+                    // Wait for retraction transitions to complete (~800ms)
+                    setTimeout(function () {
+
+                        // Purge all input fields across both panels
+                        document.querySelectorAll('.av-terminal__input').forEach(function (input) {
+                            input.value = '';
+                        });
+
+                        // PHASE 5: Re-initialize terminal sweep
+                        terminal.classList.remove('av-terminal--annihilated');
+                        terminal.classList.remove('av-sweep-reveal--visible');
+
+                        // Force reflow so the pre-render clip-path is painted
+                        void terminal.offsetWidth;
+
+                        // Re-sweep: bank-vault rise from the void
+                        requestAnimationFrame(function () {
+                            requestAnimationFrame(function () {
+                                terminal.classList.add('av-sweep-reveal--visible');
+                                lockdownActive = false;
+                            });
+                        });
+
+                    }, 800);
+
+                }, 4000);
+            }
+
+            // Wire AUTHORIZE CONNECTION buttons
+            document.querySelectorAll('.av-terminal__submit').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    executeLockdown();
+                });
+            });
+
+            // Wire FORGOT PASSWORD buttons
+            document.querySelectorAll('.av-terminal__forgot').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    executeLockdown();
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
