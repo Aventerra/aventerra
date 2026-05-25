@@ -462,12 +462,7 @@ body a, body button, body input[type="submit"] {
     will-change: transform, opacity, filter;
 }
 
-/* ─── KINEMATIC DECOUPLING (Phase XLVI) ─── */
-.av-filtration-grid:has(.av-node-cluster:hover) .av-node-cluster:not(:hover) {
-    transform: scale(0.95);
-    opacity: 0.3;
-    filter: blur(4px);
-}
+/* ─── KINEMATIC DECOUPLING REMOVED (Phase LVI) ─── */
 
 /* ─── CARD LAYOUT ─── */
 .av-card {
