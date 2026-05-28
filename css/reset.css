@@ -39,6 +39,9 @@ body {
     font-family: var(--font-primary);
     font-weight: var(--weight-regular);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* ─── Neutralize all interactive defaults ─── */
